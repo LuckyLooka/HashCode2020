@@ -8,14 +8,8 @@ import java.util.ArrayList;
 class Main {
 	public static void main(String[] args) {
 		File f = new File("a_example.txt");
-		readFile(f);
-}
-	
-	
-static void readFile(File f){
-	try {
-		Scanner myReader = new Scanner(f);
-		while (myReader.hasNextLine()) {
+		try {
+			Scanner myReader = new Scanner(f);
 			int books = myReader.nextInt();
 			int libraries = myReader.nextInt();
 			int days = myReader.nextInt();
@@ -34,18 +28,12 @@ static void readFile(File f){
 				}
 				Library lib = new Library(libBooks,time,daily_scan,false);
 				libList.add(lib);
-				//Library lib = new Library(book,)//lib object no of books
-				//lib object sign up process time
-				//books that can be scanned per day
-				//books it contains
 			}
-			//System.out.println(data);
+			myReader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
 		}
-		myReader.close();
-	} catch (FileNotFoundException e) {
-		System.out.println("An error occurred.");
-		e.printStackTrace();
+		// start here
 	}
-
-}
 }
